@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Tooltip from "../tooltip/Tooltip";
 import {
   ButtonFilledStyled,
@@ -6,7 +6,7 @@ import {
   ToolTipBox
 } from "./Buttons.styled";
 
-export const Button = (props) => {
+export const Button = (props: any) => {
   const [invalidTootip, setinvalidTootip] = useState({
     case: false,
     text: ""

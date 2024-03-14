@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useWishList from "../../../hooks/crudApis/useWishList";
 import IPlot from "../../../interfaces/IPlot";
 import ModalBuyPlot from "../../plot/modals/modalBuyPlot/ModalBuyPlot";

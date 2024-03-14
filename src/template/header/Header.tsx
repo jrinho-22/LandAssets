@@ -10,7 +10,6 @@ import { Container } from "./Header.styled";
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loadingActions } from "../../redux/reducers/loading";
 import IMenuItem from "../../interfaces/IMenuItem";
 import Logo from "../../utils/Logo";
 import { Button } from "../../components/buttons/Buttons";
@@ -63,7 +62,7 @@ function Header(props: any) {
   };
 
   const changePath = (el: IMenuItem) => {
-    navigate(el.path);
+    navigate(`/LandAssets/${el.path}`);
   };
 
   useEffect(() => {
@@ -89,25 +88,17 @@ function Header(props: any) {
   }, [activeLink, flatLinkWidthPercentages]);
 
   useEffect(() => {
-    // dispatch(loadingActions.beginLoading());
     const menuPage = links.filter((v) => v.path == location.pathname.slice(1));
     !menuPage ? setActiveLink(null) : setActiveLink(menuPage[0]);
-    // setTimeout(() => {
-    // dispatch(loadingActions.finishLoading());
-    // }, 500);
   }, [location.pathname]);
 
   const loginHandler = () => {
-    // dispatch(loadingActions.beginLoading());
-    navigate("/login");
-    // setTimeout(() => {
-    // dispatch(loadingActions.finishLoading());
-    // }, 500);
+    navigate("/LandAssets/login");
   };
 
   const logoutHandler = () => {
     dispatch(authActions.logout());
-    navigate("/home");
+    navigate("/LandAssets/home");
   };
 
   return (

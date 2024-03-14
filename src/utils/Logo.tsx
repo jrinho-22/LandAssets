@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import React from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const Logo = (props: any) => {

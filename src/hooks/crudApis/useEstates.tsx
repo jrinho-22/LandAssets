@@ -1,9 +1,6 @@
-import React, { useState } from "react";
 import api from "../../axios-config/estates";
 
 const useEstates = () => {
-  //   const [isSaving, setIsSaving] = useState(false);
-
   const get = async () => {
     try {
       const res: any = await api.get("");

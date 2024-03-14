@@ -1,12 +1,9 @@
-import { Modal, TextField } from "@mui/material";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Modal } from "@mui/material";
 import usePlotUser from "../../../hooks/crudApis/usePlotsUser";
 import IUserPlot from "../../../interfaces/IUserPlot";
 import FormGrid, { FormItem, FormRow } from "../../formGrid/FormGrid";
 import { ModalBox } from "../../plot/modals/Modal.styled";
 import OrderSummary from "../../plot/modals/modalBuyPlot/OrderSummary";
-import UserTable from "../UserTable";
 
 const modalPayPlot = (props: {
   plots: IUserPlot[];
@@ -39,7 +36,7 @@ const modalPayPlot = (props: {
 
   const customActionHandler = async () => {
     props.plots.map(async (v: IUserPlot) => {
-      await modelPayPlot.put(v.id);
+      await modelPayPlot.put(Number(v.id));
     });
     setTimeout(() => {
       window.location.reload();

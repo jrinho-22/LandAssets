@@ -1,5 +1,3 @@
-import moment from "moment";
-import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import api from "../../axios-config/users";
 import IUsers from "../../interfaces/IUsers";

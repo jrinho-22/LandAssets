@@ -1,5 +1,4 @@
-import { TextField } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import IPlot from "../../../interfaces/IPlot";
 import NumericFormatCustom from "../../inputs/NumberFormat";
 import BaseTextField from "./BaseTextField";

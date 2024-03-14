@@ -5,7 +5,7 @@ import {
   Select,
   Typography
 } from "@mui/material";
-import React, { ReactEventHandler, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PlotInfo from "../../components/plot/PlotInfo";
 import { LowerWrapper } from "../../styles/styledComponets";
 import {
@@ -47,7 +47,6 @@ const Home = () => {
   };
 
   const handleChange = (e: any) => {
-    console.log("runinginginging");
     if (plotInfoContainer.current) {
       settouch(true);
       setactiveState(e.target.value);

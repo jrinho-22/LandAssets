@@ -1,5 +1,4 @@
-import { useTheme, Modal, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Modal, TextField, Typography } from "@mui/material";
 import { Button } from "../../buttons/Buttons";
 import { ModalBox } from "./Modal.styled";
 

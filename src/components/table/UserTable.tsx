@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Subheader from "./subheader/Subheader";
 import Table from "./Table";
 import User from "../../pages/user/userUtils/User";
@@ -7,7 +7,7 @@ import IPlot from "../../interfaces/IPlot";
 
 interface IUserTable {
   header: Array<Object>;
-  items: Array<Object>;
+  items: Array<Object> | undefined;
   title: string;
   style?: Object;
   removeButton?: Boolean;
@@ -15,6 +15,7 @@ interface IUserTable {
   shareButton?: Boolean;
   buyNowButton?: Array<string> | null;
   payNowButton?: Array<string> | null;
+  loading?: boolean;
 }
 
 const UserTable: React.FC<IUserTable> = (props: any) => {

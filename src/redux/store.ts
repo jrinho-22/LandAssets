@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import reducers from "./reducers";
-import localSorage from "./localStorage"
+import localSorage from "./localStorage";
 
 class StoreServiceProvider {
+  static _instance: StoreServiceProvider | null = null;
 
   /**
    *
    */
   _storeConfig: ReturnType<typeof configureStore> | any;
-  //   (this._storeConfig as ReturnType<typeof configureStore>).observable()
 
   /**
    *
@@ -21,22 +21,20 @@ class StoreServiceProvider {
    *
    */
   constructor() {
-    if (!StoreServiceProvider.instance) {
+    if (!StoreServiceProvider._instance) {
       this._storeConfig = configureStore({
         reducer: reducers
       });
-      StoreServiceProvider.instance = this;
+      StoreServiceProvider._instance = this;
     }
-    return StoreServiceProvider.instance;
+    return StoreServiceProvider._instance;
   }
 }
 
 const instance = new StoreServiceProvider();
 
-const store = instance.storeConfig
+const store = instance.storeConfig;
 
-store.subscribe(() =>
-localSorage.saveLocalStorage(store.getState())
-);
+store.subscribe(() => localSorage.saveLocalStorage(store.getState()));
 
-export {instance as default };
+export { instance as default };

@@ -1,7 +1,6 @@
-import Content from "./template/content/Content";
 import Routes from "./routes/Routes";
 import { Backdrop, CircularProgress } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function App() {
   const isLoading = useSelector((state: any) => state.loading.isLoading);

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import api from "../../axios-config/userPlots";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import IUserPlot from "../../interfaces/IUserPlot";
-import { AxiosResponse, HttpStatusCode } from "axios";
+import { AxiosResponse } from "axios";
 
 const usePlotUser = () => {
   //   const [isSaving, setIsSaving] = useState(false);
@@ -37,32 +36,32 @@ const usePlotUser = () => {
 
   const put = async (id?: number) => {
     try {
-      const plot: IUserPlot | undefined = await get(id);
+      const plot: IUserPlot | IUserPlot[] | undefined = await get(id);
       console.log(plot, "plottt");
       if (plot !== undefined) {
-        var nextPaymentDue = moment(plot.nextPaymentDue);
+        var nextPaymentDue: Moment | string = moment(
+          (plot as IUserPlot).nextPaymentDue
+        );
         nextPaymentDue = nextPaymentDue.add(1, "month").format("MM-DD-YYYY");
         const record = {
           ...plot,
-          fullyPaid: plot.installments == 1 ? true : false,
-          // userId: 1,
-          // plotId: 2,
-          // price: 380000,
-          // monthlyPayment: 37000,
-          // estate: Florida,
-          // plotNo: 22,
+          fullyPaid: (plot as IUserPlot).installments == 1 ? true : false,
           installments:
-            plot.installments == 1 || plot.installments == null
+            (plot as IUserPlot).installments == 1 ||
+            (plot as IUserPlot).installments == null
               ? null
-              : plot.installments - 1,
+              : (plot as IUserPlot).installments! - 1,
           nextPaymentDue:
-            plot.installments == 1 || plot.installments == null
+            (plot as IUserPlot).installments == 1 ||
+            (plot as IUserPlot).installments == null
               ? null
               : nextPaymentDue,
           pendingPrice:
-            plot.installments == 1 || plot.installments == null
+            (plot as IUserPlot).installments == 1 ||
+            (plot as IUserPlot).installments == null
               ? null
-              : plot.pendingPrice! - plot.monthlyPayment
+              : (plot as IUserPlot).pendingPrice! -
+                (plot as IUserPlot).monthlyPayment!
           // id: 3
         };
         console.log(record);
@@ -82,7 +81,7 @@ const usePlotUser = () => {
       var today = moment();
       fullyPaid = record.paymentMethod == "finance" ? false : true;
 
-      const newRecord = {
+      const newRecord: IUserPlot = {
         fullyPaid: fullyPaid,
         size: record.size,
         pricePerSQM: record.pricePerSQM,
@@ -93,7 +92,9 @@ const usePlotUser = () => {
         estate: record.estate,
         plotNo: record.number,
         installments: record.installments,
-        downPayment: record.firstInstallment
+        downPayment: record.firstInstallment,
+        pendingPrice: null,
+        nextPaymentDue: null
       };
 
       if (record.paymentMethod == "finance") {

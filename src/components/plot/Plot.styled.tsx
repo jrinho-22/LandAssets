@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { useTheme } from "@mui/material";
 
-export const Container = styled.div<{ translate: boolean }>`
+export const Container = styled.div<{ translate: Boolean }>`
   margin: 0px auto;
   /* width: 1200px; */
   max-width: 1400px;
@@ -41,7 +41,7 @@ export const UpperContainer = styled.div`
   border-radius: 40px;
 `;
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.div<{ translate: Boolean }>`
   /* height: 80px; */
   /* z-index: 6; */
   display: flex;

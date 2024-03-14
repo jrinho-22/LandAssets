@@ -1,5 +1,5 @@
-import { Modal, TextField, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import { Modal, Typography } from "@mui/material";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useWishList from "../../../hooks/crudApis/useWishList";
 import theme from "../../../styles/CustomizingTheme";
@@ -42,7 +42,7 @@ const ModalWishList = (props: any) => {
           </Typography>
           <Button
             type="filled"
-            onClick={() => navigate("/user-wish-list")}
+            onClick={() => navigate("/LandAssets/user-wish-list")}
             bg={props.theme.palette.primary.dark}
             border={props.theme.palette.primary.main}
           >

@@ -46,7 +46,7 @@ const modalPayPlot = (props: {
             }
             length={props.plot.length}
           >
-            {props.plot.map((v: IWishList | IUserPlot, index) => {
+            {props.plot.map((v: IWishList | IUserPlot) => {
               return (
                 <div>
                   <FormRow style={{ marginTop: "0px", marginLeft: "-24px" }}>

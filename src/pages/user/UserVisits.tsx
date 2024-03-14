@@ -1,4 +1,3 @@
-import React from "react";
 import UserTable from "../../components/table/UserTable";
 
 const UserPayments = () => {

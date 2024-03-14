@@ -3,7 +3,7 @@ export default interface IFormGrid {
     customAction?: Function;
     actionButton?
     : string;
-    style?: Object;
+    style?: any;
     model?: {post: Function};
     record?: Object;
     children: React.ReactNode;

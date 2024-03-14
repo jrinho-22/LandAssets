@@ -1,5 +1,5 @@
-import { Modal, TextField, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { Modal, Typography } from "@mui/material";
+import { useEffect } from "react";
 import IWishList from "../../../interfaces/IWishList";
 import { ModalBox } from "../../plot/modals/Modal.styled";
 import theme from "../../../styles/CustomizingTheme";

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import UserTable from "../../components/table/UserTable";
 import usePlotsUser from "../../hooks/crudApis/usePlotsUser";
 import IUserPlot from "../../interfaces/IUserPlot";
 
 const UserPlots = () => {
-  const [plots, setPlots] = useState<IUserPlot & { status: string }[]>();
+  const [plots, setPlots] = useState<(IUserPlot & { status: string })[]>();
   const plotsUserRequest = usePlotsUser();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +14,7 @@ const UserPlots = () => {
     try {
       const res: IUserPlot[] | undefined =
         await plotsUserRequest.getUsersPlot();
-      const data: (IUserPlot & { status: string }[]) | undefined = res
+      const data: (IUserPlot & { status: string })[] | undefined = res
         ? checkNextPaymentDate(res)
         : undefined;
       data && setPlots(data);

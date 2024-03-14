@@ -1,5 +1,4 @@
 import moment from "moment";
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import api from "../../axios-config/wishList";
 import IPlot from "../../interfaces/IPlot";
@@ -53,7 +52,7 @@ const useWishList = () => {
 
   const del = async (ids: number[]) => {
     try {
-      var res = ids.map(async (id: number) => {
+      ids.map(async (id: number) => {
         await api.delete(`${id}`);
       });
     } catch (e) {

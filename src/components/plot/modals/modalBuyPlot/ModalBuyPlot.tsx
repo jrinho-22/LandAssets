@@ -1,13 +1,10 @@
 import {
   FormControlLabel,
-  Grid,
   IconButton,
   Modal,
   Radio,
   RadioGroup,
-  TextField,
-  Typography,
-  useTheme
+  TextField
 } from "@mui/material";
 import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 import React, { useEffect, useState } from "react";
@@ -15,13 +12,11 @@ import useValidation, {
   required,
   requiredIf
 } from "../../../../hooks/useValidation";
-import { Button } from "../../../buttons/Buttons";
 import FormGrid, { FormItem, FormRow } from "../../../formGrid/FormGrid";
 import { TextHeader } from "../../../formGrid/textHeader/TextHeader";
 import { ModalBox } from "../Modal.styled";
 import OrderSummary from "./OrderSummary";
 import usePlotsUser from "../../../../hooks/crudApis/usePlotsUser";
-import IPlot from "../../../../interfaces/IPlot";
 import NumericFormatCustom from "../../../inputs/NumberFormat";
 
 const CreditCardFields = (props: any) => {
@@ -97,14 +92,7 @@ const CreditCardFields = (props: any) => {
   );
 };
 
-interface IModal {
-  plot?: IPlot;
-  setModalVisibility: Function;
-  open: boolean;
-}
-
-const ModalBuyPlot: React.FC = (props: any) => {
-  const theme = useTheme();
+const ModalBuyPlot = (props: any) => {
   const modelBuyPlot = usePlotsUser();
 
   type RecordType = {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import UserTable from "../../components/table/UserTable";
 import useWishList from "../../hooks/crudApis/useWishList";
 import IWishList from "../../interfaces/IWishList";

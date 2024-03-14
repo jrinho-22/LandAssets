@@ -766,6 +766,22 @@
       "nextPaymentDue": "05-14-2024",
       "pendingPrice": 199500,
       "id": 8
+    },
+    {
+      "fullyPaid": false,
+      "size": "150",
+      "pricePerSQM": "25",
+      "userId": 4,
+      "plotId": "25",
+      "price": 400000,
+      "monthlyPayment": 199500,
+      "estate": "California",
+      "plotNo": "2",
+      "installments": 1,
+      "downPayment": 1000,
+      "pendingPrice": 199500,
+      "nextPaymentDue": "05-14-2024",
+      "id": 9
     }
   ],
   "wish-list": [
@@ -878,6 +894,24 @@
       },
       "plotNumber": 1,
       "id": 8
+    },
+    {
+      "userId": 4,
+      "dayAdded": "03-14-2024",
+      "status": "available",
+      "plot": {
+        "id": 25,
+        "estate": "California",
+        "number": "2",
+        "size": "150",
+        "pricePerSQM": "25",
+        "priceSQMPartialPayment": "27",
+        "totalCashPrice": 600000,
+        "totalPartialPaymentPrice": 400000,
+        "firstInstallment": 1000
+      },
+      "plotNumber": "2",
+      "id": 9
     }
   ]
 }

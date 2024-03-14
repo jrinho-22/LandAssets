@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { TooltipStyled } from "./Tooltip.styled";
 
-const Tooltip = (props) => {
+const Tooltip = (props: any) => {
   return <TooltipStyled>{props.text}</TooltipStyled>;
 };
 

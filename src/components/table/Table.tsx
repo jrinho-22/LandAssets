@@ -1,5 +1,4 @@
-import { Checkbox, CircularProgress, useTheme } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { Checkbox, CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Status, TableStyled, TableRow } from "./Table.styled";
 
@@ -9,6 +8,7 @@ interface ITable {
   style?: Object | null;
   activeChecked: Object[];
   setActiveChecked: Function;
+  loading: boolean;
   // status?: "overDue" | "pending" | "Paid " | null;
 }
 
@@ -19,7 +19,6 @@ const Table: React.FC<ITable> = (props: any) => {
     style: null
     // status: "overDue"
   };
-  const theme = useTheme();
   const [headerCheck, setHeaderCheck] = useState(false);
 
   useEffect(() => {
@@ -135,7 +134,7 @@ const Table: React.FC<ITable> = (props: any) => {
                 );
               })
             ) : (
-              <td style={{ height: "100px" }} colspan={props.header.length + 1}>
+              <td style={{ height: "100px" }} colSpan={props.header.length + 1}>
                 No elements
               </td>
             )}

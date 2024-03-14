@@ -9,7 +9,7 @@ const UserMenu = () => {
   const options = [
     {
       title: "My plots",
-      path: "/user-plots",
+      path: "user-plots",
       iconComponent: (
         <PushPinOutlinedIcon
           sx={{
@@ -22,7 +22,7 @@ const UserMenu = () => {
     // { title: "Booked Plots", path: "", iconComponent: <PaymentsIcon /> },
     {
       title: "My Wish List",
-      path: "/user-wish-list",
+      path: "user-wish-list",
       iconComponent: (
         <FavoriteBorderOutlinedIcon
           sx={{
@@ -37,7 +37,7 @@ const UserMenu = () => {
     <User>
       <FlexContainerRow>
         {options.map((v) => (
-          <OptionContainer onClick={() => navigate(v.path)}>
+          <OptionContainer onClick={() => navigate(`/LandAssets/${v.path}`)}>
             {v.iconComponent}
             <div>
               <span>{v.title}</span>

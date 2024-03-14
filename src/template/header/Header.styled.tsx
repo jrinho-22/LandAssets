@@ -5,7 +5,6 @@ export const Container = styled(Box)`
   background-image: url("public/back2.png");
   background-size: cover;
   padding: 2% 11%;
-  /* height: 400px; */
   position: relative;
 `;
 

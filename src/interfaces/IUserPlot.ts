@@ -3,12 +3,15 @@ export default interface IUserPlot {
     userId: string,
     plotId: string,
     price: number,
-    monthlyPayment: number,
     estate: string,
     plotNo: number,
+    size: string,
+    pricePerSQM: string,    
+    id?: string,
     installments: number | null,
-    nextPaymentDue: Date | null,
     pendingPrice: number | null,
-    id: string,
-    downPayment: number
+    nextPaymentDue: string | null,
+    downPayment: number | null
+    monthlyPayment: number | null,
+
 }

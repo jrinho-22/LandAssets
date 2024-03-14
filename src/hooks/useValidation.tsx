@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const required = (v: any) => {
   return v == null || v.length == 0 || v == 0 ? false : true;

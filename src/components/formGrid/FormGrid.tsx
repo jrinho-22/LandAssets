@@ -22,7 +22,7 @@ const FormGrid: React.FC<IFormGrid> = (props: IFormGrid) => {
       if (props.customAction) {
         props.customAction();
       } else {
-        props.model!.post(props.record), navigate("/user-menu");
+        props.model!.post(props.record), navigate("/LandAssets/user-menu");
       }
     }
     setformSubmitted(false);

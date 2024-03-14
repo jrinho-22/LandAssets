@@ -1,6 +1,5 @@
 import { TextField, Typography } from "@mui/material";
-import Box from "@mui/material/Box";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormGrid, {
   FormItem,
@@ -8,27 +7,19 @@ import FormGrid, {
 } from "../../components/formGrid/FormGrid";
 import useUsers from "../../hooks/crudApis/useUsers";
 import useValidation, {
-  required,
   requiredIf,
   validEmail
 } from "../../hooks/useValidation";
 import Logo from "../../utils/Logo";
 import { Background, Container } from "./Login.styled";
 
-const Signin = (props) => {
-  const onChangeHandler = (v, e) => {
-    props.setrecord((prev) => ({
+const Signin = (props: any) => {
+  const onChangeHandler = (v: string, e: any) => {
+    props.setrecord((prev: any) => ({
       ...prev,
       signin: { ...prev.signin, [v]: e.target.value }
     }));
   };
-
-  // useEffect(() => {
-  //   console.log(props.validationForm?.signinEmail);
-  //   // props.validationForm?.signinEmail?.every((v) => {
-  //   //   console.log(props.validationForm, "propsss", "props.validationForm");
-  //   // });
-  // }, [props.validationForm]);
 
   return (
     <>
@@ -114,9 +105,9 @@ const Signin = (props) => {
   );
 };
 
-const SignUp = (props) => {
-  const onChangeHandler = (v, e) => {
-    props.setrecord((prev) => ({
+const SignUp = (props: any) => {
+  const onChangeHandler = (v: string, e: any) => {
+    props.setrecord((prev: any) => ({
       ...prev,
       signup: { ...prev.signup, [v]: e.target.value }
     }));

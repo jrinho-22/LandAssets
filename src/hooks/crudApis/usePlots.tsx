@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import api from "../../axios-config/plots";
 
 const usePlotsUser = () => {

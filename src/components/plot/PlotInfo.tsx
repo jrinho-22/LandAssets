@@ -1,5 +1,5 @@
 import { CircularProgress, Typography, useTheme } from "@mui/material";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 import { Button } from "../buttons/Buttons";
@@ -19,19 +19,16 @@ import EstateFields from "./fields/EstateFields";
 import PLotFields from "./fields/PlotFields";
 import IEstate from "../../interfaces/IEstate";
 import IPlot from "../../interfaces/IPlot";
-import ModalBookVisit from "./modals/ModalBookVisit";
 import ModalBuyPlot from "./modals/modalBuyPlot/ModalBuyPlot";
-import ModalReservePlot from "./modals/ModalReservePlot";
 import ModalWishList from "./modals/ModalWishList";
 import usePlots from "../../hooks/crudApis/usePlots";
-import Carousel, { CarouselRef } from "../carousel/Carousel";
+import Carousel from "../carousel/Carousel";
 import { useSelector } from "react-redux";
 import useEstates from "../../hooks/crudApis/useEstates";
 import usePlotUser from "../../hooks/crudApis/usePlotsUser";
 import IUserPlot from "../../interfaces/IUserPlot";
 import IWishList from "../../interfaces/IWishList";
 import useWishList from "../../hooks/crudApis/useWishList";
-import { ButtonFilledStyled } from "../buttons/Buttons.styled";
 
 const PlotInfo = forwardRef<any, any>((props, ref) => {
   const user = useSelector((state: any) => state.auth.user);
@@ -126,9 +123,10 @@ const PlotInfo = forwardRef<any, any>((props, ref) => {
 
   const handleKeyPress = (event: any) => {
     if (event.key === "Enter" || event.type == "click") {
+      console.log("g=fellll", event);
       setPlotSearchLoading(true);
       setLayout("plot");
-      const plot = plots.find((plot) => plot.number == event.target.value);
+      const plot = plots.find((plot) => plot.number == searchValue);
       plot ? setActivePlot(plot) : setActivePlot(undefined);
       setTimeout(() => {
         setPlotSearchLoading(false);
@@ -175,6 +173,11 @@ const PlotInfo = forwardRef<any, any>((props, ref) => {
       false;
     setValidButtons({ buyPlot: validBuyPlot, addWishList: addWishList });
   }, [usersPlots, usersWishList, activePlot]);
+
+  const [searchValue, setsearchValue] = useState("");
+  function handleSearchChange(e: any): void {
+    setsearchValue(e.target.value);
+  }
 
   return (
     <>
@@ -267,8 +270,16 @@ const PlotInfo = forwardRef<any, any>((props, ref) => {
                   <span style={{ fontSize: "16px" }}>
                     Enter Desired Plot number
                   </span>
-                  <input onKeyDown={handleKeyPress} type="number" />
-                  <Button onClick={handleKeyPress} type="filled" size="small">
+                  <input
+                    onChange={(e: any) => handleSearchChange(e)}
+                    onKeyDown={handleKeyPress}
+                    type="number"
+                  />
+                  <Button
+                    onClick={(e: any) => handleKeyPress(e)}
+                    type="filled"
+                    size="small"
+                  >
                     search
                   </Button>
                 </div>
@@ -329,7 +340,7 @@ const PlotInfo = forwardRef<any, any>((props, ref) => {
             </div>
           )}
         </UpperContainer>
-        <FooterContainer translate={layout !== "estate"}>
+        <FooterContainer translate={layout! !== "estate"}>
           <div>
             <Button
               type="filled"
