@@ -65,7 +65,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <UpperWrapper>
-        <Img src="recep.png" />
+        <Img src="public\recep.png" />
         <Description>
           <Typography
             variant="h1"

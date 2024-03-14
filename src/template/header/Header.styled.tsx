@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled(Box)`
-  background-image: url("back2.png");
+  background-image: url("public/back2.png");
   background-size: cover;
   padding: 2% 11%;
   position: relative;
