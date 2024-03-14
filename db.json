@@ -510,7 +510,7 @@
   "estates": [
     {
       "name": "California",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "163,696",
       "oceanDistance": "12km",
       "plotsAvailable": "10,000",
@@ -523,7 +523,7 @@
     },
     {
       "name": "Texas",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "268,596",
       "oceanDistance": "55km",
       "plotsAvailable": "8,000",
@@ -536,7 +536,7 @@
     },
     {
       "name": "Florida",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "65,758",
       "oceanDistance": "23km",
       "plotsAvailable": "6,000",
@@ -549,7 +549,7 @@
     },
     {
       "name": "New York",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "54,556",
       "oceanDistance": "50km",
       "plotsAvailable": "4,000",
@@ -562,7 +562,7 @@
     },
     {
       "name": "Illinois",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "57,914",
       "oceanDistance": "840km",
       "plotsAvailable": "3,000",
@@ -575,7 +575,7 @@
     },
     {
       "name": "Ohio",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "44,825",
       "oceanDistance": "759km",
       "plotsAvailable": "2,500",
@@ -588,7 +588,7 @@
     },
     {
       "name": "Georgia",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "59,425",
       "oceanDistance": "235km",
       "plotsAvailable": "2,000",
@@ -601,7 +601,7 @@
     },
     {
       "name": "Michigan",
-      "src": "public/estateMap.png",
+      "src": "estateMap.png",
       "size": "96,714",
       "oceanDistance": "698km",
       "plotsAvailable": "1,500",
