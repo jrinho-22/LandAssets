@@ -94,7 +94,7 @@ function Header(props: any) {
   }, [location.pathname]);
 
   const loginHandler = () => {
-    navigate("/LandAssets/home");
+    navigate("/LandAssets/login");
   };
 
   const logoutHandler = () => {

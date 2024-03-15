@@ -247,12 +247,11 @@ const Login = () => {
     try {
       if (layout == "signin") {
         await modelUsers.checkLogin(record.signin);
-        navigate("/");
       } else if (layout == "signup") {
         await modelUsers.post(record.signup);
         window.alert("usuario cadastrado");
-        navigate("/");
       }
+      navigate("/LandAssets/home");
     } catch (error) {
       window.alert(error);
     }
