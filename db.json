@@ -655,6 +655,27 @@
       "password": "1",
       "phoneNumber": "4192038097",
       "id": 6
+    },
+    {
+      "fullName": "Luiz Ricardo Martins",
+      "email": "jrinho22@gmail.com",
+      "password": "123",
+      "phoneNumber": "4192038097",
+      "id": 7
+    },
+    {
+      "fullName": "Luiz Ricardo Martins",
+      "email": "jrinho22@gmail.com",
+      "password": "222",
+      "phoneNumber": "4192038097",
+      "id": 8
+    },
+    {
+      "fullName": "Luiz Ricardo Martins",
+      "email": "qq@gmail.com",
+      "password": "qqq",
+      "phoneNumber": "4192038097",
+      "id": 9
     }
   ],
   "user-plots": [

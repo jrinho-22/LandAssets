@@ -120,6 +120,11 @@ const SignUp = (props: any) => {
             error={!props.validationForm.signupFullName}
             onChange={(e) => onChangeHandler("fullName", e)}
             value={props.record.fullName}
+            helperText={
+              Object.keys(props.validationForm).length &&
+              !props.validationForm.signupFullName &&
+              "Campo Obrigatorio"
+            }
             size="small"
             color="secondary"
             variant="outlined"
@@ -133,6 +138,11 @@ const SignUp = (props: any) => {
           <TextField
             error={!props.validationForm.signupEmail}
             value={props.record.email}
+            helperText={
+              Object.keys(props.validationForm).length &&
+              !props.validationForm.signupEmail &&
+              "Email invalido"
+            }
             size="small"
             color="secondary"
             variant="outlined"
@@ -149,6 +159,11 @@ const SignUp = (props: any) => {
             onChange={(e) => onChangeHandler("password", e)}
             value={props.record.password}
             type="password"
+            helperText={
+              Object.keys(props.validationForm).length &&
+              !props.validationForm.signupPassword &&
+              "Campo Obrigatorio"
+            }
             size="small"
             color="secondary"
             variant="outlined"
@@ -164,6 +179,11 @@ const SignUp = (props: any) => {
             onChange={(e) => onChangeHandler("phoneNumber", e)}
             value={props.record.phoneNumber}
             type="number"
+            helperText={
+              Object.keys(props.validationForm).length &&
+              !props.validationForm.signupPhoneNumber &&
+              "Campo Obrigatorio"
+            }
             size="small"
             color="secondary"
             variant="outlined"
@@ -229,11 +249,14 @@ const Login = () => {
   const { validationUtils, validationForm } = useValidation(record, {
     signinEmail: [
       requiredIf(layout == "signin", record.signin.email),
-      validEmail(record.signin.email)
+      requiredIf(layout == "signin", validEmail(record.signin.email))
     ].every((v) => v == true),
     signinPassword: requiredIf(layout == "signin", record.signin.password),
     signupFullName: requiredIf(layout == "signup", record.signup.fullName),
-    signupEmail: requiredIf(layout == "signup", record.signup.email),
+    signupEmail: [
+      requiredIf(layout == "signup", record.signup.email),
+      requiredIf(layout == "signup", validEmail(record.signup.email))
+    ].every((v) => v == true),
     signupPassword: requiredIf(layout == "signup", record.signup.password),
     signupPhoneNumber: requiredIf(layout == "signup", record.signup.phoneNumber)
   });
@@ -244,9 +267,11 @@ const Login = () => {
   }, [layout]);
 
   const login = async () => {
+    console.log("fellll111111", layout);
     try {
       if (layout == "signin") {
         await modelUsers.checkLogin(record.signin);
+        console.log("fellll", layout);
       } else if (layout == "signup") {
         await modelUsers.post(record.signup);
         window.alert("usuario cadastrado");
