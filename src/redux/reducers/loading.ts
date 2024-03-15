@@ -12,7 +12,7 @@ const loadingSlice = createSlice({
         state.isLoading = true;
         setTimeout(() => {
             state.isLoading = false;
-        }, 50);
+        }, 500);
     },
     beginLoading(state) {
       state.isLoading = true;

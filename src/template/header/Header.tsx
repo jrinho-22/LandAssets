@@ -14,6 +14,7 @@ import IMenuItem from "../../interfaces/IMenuItem";
 import Logo from "../../utils/Logo";
 import { Button } from "../../components/buttons/Buttons";
 import { authActions } from "../../redux/reducers/auth";
+import { loadingActions } from "../../redux/reducers/loading";
 
 function Header(props: any) {
   const user = useSelector((state: any) => state.auth.user);
@@ -93,11 +94,16 @@ function Header(props: any) {
   }, [location.pathname]);
 
   const loginHandler = () => {
-    navigate("/LandAssets/login");
+    navigate("/LandAssets/home");
   };
 
   const logoutHandler = () => {
+    dispatch(loadingActions.beginLoading());
     dispatch(authActions.logout());
+    setTimeout(() => {
+      dispatch(loadingActions.finishLoading());
+    }, 500);
+
     navigate("/LandAssets/home");
   };
 
