@@ -1,7 +1,7 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite \n \n
 
-commands to run aplication:
-npm i (install dependencies)
-npm run dev (start aplication)
+commands to run aplication: \n
+npm i (install dependencies) \n
+npm run dev (start aplication) \n
 json-server db.json (start json db)
 
